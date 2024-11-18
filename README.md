@@ -136,3 +136,20 @@ public class AssignmentOne {
         cancelBooking(appointments, "1234567890");
         printExistingAppointments(appointments);
     }
+
+    private static void cancelBooking(ArrayList<Appointment> appointments, String mobilePhone) {
+        Appointment appointmentToCancel = null;
+        for (Appointment appointment : appointments) {
+            if (appointment.getMobilePhone().equals(mobilePhone)) {
+                appointmentToCancel = appointment;
+                break;
+            }
+        }
+        if (appointmentToCancel != null) {
+            appointments.remove(appointmentToCancel);
+            System.out.println("Appointment cancelled for mobile phone: " + mobilePhone);
+        } else {
+            System.out.println("No appointment found for mobile phone: " + mobilePhone);
+        }
+    }
+}
